@@ -6,5 +6,5 @@ select *
 from {{ref('stg_staging__Customer')}}
 
 )
-select customer_id,first_name,last_name,gender,age,gender,city,loyalty_status
+select customer_id,first_name,last_name,gender,age,city,loyalty_status
 from customer
