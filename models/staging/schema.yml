@@ -1,0 +1,18 @@
+version: 2
+
+
+
+sources:
+  - name: staging
+    database: analyticalsql
+    schema: DWH
+    tables:
+      - name: Category
+      - name: Customer
+      - name: DateDIM
+      - name: product
+      - name: product_transaction
+      - name: promotion
+      - name: subcategory
+      - name: transaction
+      - name: store
