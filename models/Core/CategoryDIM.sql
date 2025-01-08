@@ -10,6 +10,12 @@ subcat as
     select * from
     {{ref('stg_staging__subcategory')}} 
     
-)
-    select category.category_id,category_name,subcategory_name from
+),
+dim as (
+    select row_number() over() as id,
+    category.category_id,category_name,subcategory_name
+    from
     category inner join subcat on category.category_id=subcat.category_id
+)
+select * from dim order by id
+
