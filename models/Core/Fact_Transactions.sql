@@ -17,7 +17,8 @@ prods as
 ),
 all_transacts as
 (
-    select trans.transaction_id,quantity,customer_id,store_id,coalesce(promotion_id,0) as promotion_id,transaction_time,total_amount,transaction_date,product_id
+    select trans.transaction_id,quantity,customer_id,store_id,coalesce(promotion_id,0) as promotion_id,
+    transaction_time,total_amount,transaction_date,product_id
     from trans inner join prod_trans on trans.transaction_id=prod_trans.transaction_id
 ),
 fact as (

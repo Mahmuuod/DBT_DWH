@@ -8,11 +8,60 @@ sources:
     schema: DWH
     tables:
       - name: Category
+        columns:
+          - name: category_id
+            tests:
+              - not_null
+              - unique
+          - name: category_name
+            tests:
+             - empty_string
+
       - name: Customer
+        columns:
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+          - name: first_name
+            tests:
+              - empty_string
+          - name: last_name
+            tests:
+              - empty_string
       - name: DateDIM
       - name: product
+        columns:
+          - name: product_id
+            tests:
+              - unique
+              - not_null
+              
       - name: product_transaction
       - name: promotion
+        columns:
+          - name: promotion_id
+            tests:
+               - unique
+               - not_null
       - name: subcategory
+        columns:
+          - name: subcategory_id
+            tests:
+              - unique
+              - not_null
+
       - name: transaction
+        columns:
+          - name: transaction_id
+            tests:
+              - unique
+              - not_null
+              
       - name: store
+        columns:
+          - name: store_id
+            tests:
+              - unique
+              - not_null
+              
