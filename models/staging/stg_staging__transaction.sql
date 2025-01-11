@@ -20,4 +20,3 @@ select
     transaction_time,
     total_amount
 from source
-

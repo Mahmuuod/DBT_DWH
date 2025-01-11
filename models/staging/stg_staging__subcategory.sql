@@ -1,20 +1,8 @@
-with 
+with
 
-source as (
+    source as (select * from {{ source("staging", "subcategory") }}),
 
-    select * from {{ source('staging', 'subcategory') }}
+    subcatdata as (select subcategory_id, subcategory_name, category_id from source)
 
-),
-
-subcatData as (
-
-    select
-        subcategory_id,
-        subcategory_name,
-        category_id
-
-    from source
-
-)
-
-select * from subcatData
+select *
+from subcatdata
