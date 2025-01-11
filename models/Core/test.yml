@@ -1,5 +1,7 @@
 models:
   - name: Fact_Transactions
+    description: "this is the fact table of our model "
+
     columns:
       - name: Surrogate_key
         tests:
@@ -47,5 +49,12 @@ models:
       - name: total_amount
         tests:
           - positive_check
+  - name: Customer_DIM
+    columns:
+      - name: gender
+        tests:
+          - accepted_values:
+              values:
+                ['Male','Female']
 
       
