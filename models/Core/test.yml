@@ -1,0 +1,60 @@
+models:
+  - name: Fact_Transactions
+    description: "this is the fact table of our model "
+
+    columns:
+      - name: Surrogate_key
+        tests:
+          - unique
+          - not_null
+      - name: category_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('CategoryDIM')
+              field: category_id
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('Customer_DIM')
+              field: customer_id
+      - name: datekey
+        tests:
+          - not_null
+          - relationships:
+              to: ref('Date_DIM')
+              field: datekey
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('Product_DIM')
+              field: product_id
+      - name: promotion_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('PromotionDIM')
+              field: promotion_id
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('Store_DIM')
+              field: store_id
+      - name: quantity
+        tests:
+          - positive_check
+      - name: total_amount
+        tests:
+          - positive_check
+  - name: Customer_DIM
+    columns:
+      - name: gender
+        tests:
+          - accepted_values:
+              values:
+                ['Male','Female']
+
+      
